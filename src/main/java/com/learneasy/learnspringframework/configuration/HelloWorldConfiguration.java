@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class HelloWorldConfiguration {
-    record Person(String name, int age) {
+    record Person(String name, int age, Address address) {
     }
 
-    record Address(String city, String street) {
+    public record Address(String city, String street) {
     }
 
     @Bean
@@ -23,11 +23,26 @@ public class HelloWorldConfiguration {
 
     @Bean
     public Person person() {
-        return new Person("Geetha", 25);
+        return new Person("Geetha", 25, new Address("Hyderabad", "Kothaguda"));
     }
 
     @Bean
+    public Person person2MethodCall() {
+        return new Person(name(), age(), address());
+    }
+
+    @Bean
+    public Person person3Parameters(String name, int age, Address address2) {
+        return new Person(name, age, address2);
+    }
+
+    @Bean(name = "address")
     public Address address() {
         return new Address("Hyderabad", "Anjaiah Nagar");
+    }
+
+    @Bean(name = "address2")
+    public Address address2() {
+        return new Address("Hyderabad", "Durgam Cheruvu");
     }
 }

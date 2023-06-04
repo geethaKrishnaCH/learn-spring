@@ -16,6 +16,10 @@ public class Main {
         System.out.println(context.getBean("age"));
         System.out.println(context.getBean("person"));
         System.out.println(context.getBean("address"));
+        System.out.println(context.getBean("person2MethodCall"));
+        System.out.println(context.getBean("person3Parameters"));
+        // error will be thrown
+        // System.out.println(context.getBean(HelloWorldConfiguration.Address.class));
 
     }
 
