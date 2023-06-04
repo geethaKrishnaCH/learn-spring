@@ -11,8 +11,11 @@ public class Main {
         // 2. Initialize the spring context
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(HelloWorldConfiguration.class);
 
-        // 3. Retrieve the bean
+        // 3. Retrieve the beans
         System.out.println(context.getBean("name"));
+        System.out.println(context.getBean("age"));
+        System.out.println(context.getBean("person"));
+        System.out.println(context.getBean("address"));
 
     }
 
